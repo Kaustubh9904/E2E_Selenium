@@ -18,10 +18,24 @@ public class ErrorValidation extends BaseTest {
     //implicit wait trassfered to baseTest  as common part
     //login
 
-    @Test
-    public void submitOrder() throws IOException, InterruptedException {
+    @Test(groups= {"ErrorHandling"})
+    public void LoginErrorValidation() throws IOException, InterruptedException {
         String itemName = "ADIDAS ORIGINAL";
         landingPage.loginApplication("testl@gmail.com", "Test@1234");
         Assert.assertEquals("Incorrect email or password.",landingPage.getErrorMessage());
+    }
+
+    @Test(groups= {"ErrorHandling"})
+    public void ProductErrorValidation() throws IOException, InterruptedException
+    {
+
+        String productName = "ZARA COAT 3";
+        ProductCatalogue productCatalogue = landingPage.loginApplication("testk@gmail.com", "Test@1234");
+        List<WebElement> products = productCatalogue.getProductsList();
+        productCatalogue.addToCart(productName);
+        CartPage cartPage = productCatalogue.gotoCart();
+        Boolean match = cartPage.verifyProduct("ZARA COAT 33");
+        Assert.assertFalse(match);
+
     }
 }

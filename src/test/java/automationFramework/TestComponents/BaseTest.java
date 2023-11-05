@@ -4,7 +4,9 @@ import automationFramework.pageobjects.LandingPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -29,10 +31,14 @@ public LandingPage landingPage;
         String browserName = property.getProperty("browser");
         if(browserName.equalsIgnoreCase("edge")) {
             WebDriverManager.edgedriver().setup();
-            driver = new EdgeDriver();
+            EdgeOptions options = new EdgeOptions();
+            //options.addArguments("--headless=new");
+            driver = new EdgeDriver(options);
         }else if(browserName.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            //options.addArguments("--headless=new");
+            driver = new ChromeDriver(options);
         }else if(browserName.equalsIgnoreCase("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
@@ -41,7 +47,7 @@ public LandingPage landingPage;
         driver.manage().window().maximize();
         return driver;
     }
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public LandingPage launchApplication() throws IOException {
         WebDriver driver = initializeDriver();
         landingPage = new LandingPage(driver);
@@ -49,7 +55,7 @@ public LandingPage landingPage;
         return landingPage;
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void teardown(){
         driver.close();
     }
