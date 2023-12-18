@@ -55,7 +55,9 @@ public class AbstractComponent {
     }
 
     public OrderPage gotoOrdersPage(){
+        System.out.println("Test 1");
         orderPage.click();
+        System.out.println("Test 1");
         OrderPage orderPage = new OrderPage(driver);
         return orderPage;
     }
