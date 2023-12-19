@@ -1,6 +1,7 @@
 package automationFramework.tests;
 
 import automationFramework.TestComponents.BaseTest;
+import automationFramework.TestComponents.Retry;
 import automationFramework.pageobjects.CartPage;
 import automationFramework.pageobjects.CheckoutPage;
 import automationFramework.pageobjects.ConfirmationPage;
@@ -18,7 +19,7 @@ public class ErrorValidation extends BaseTest {
     //implicit wait trassfered to baseTest  as common part
     //login
 
-    @Test(groups= {"ErrorHandling"})
+    @Test(groups= {"ErrorHandling"},retryAnalyzer = Retry.class)
     public void LoginErrorValidation() throws IOException, InterruptedException {
         String itemName = "ADIDAS ORIGINAL";
         landingPage.loginApplication("testl@gmail.com", "Test@1234");

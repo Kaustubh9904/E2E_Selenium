@@ -11,7 +11,6 @@ public class ExtentReportsNG {
         reporter.config().setReportName("Automation Test results");
         reporter.config().setDocumentTitle("Test Results");
 
-        System.out.println("hello");
         ExtentReports extent = new ExtentReports();
         extent.attachReporter(reporter);
         extent.setSystemInfo("Tester", "Kaustubh Thakare");

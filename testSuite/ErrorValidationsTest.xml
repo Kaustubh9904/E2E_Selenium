@@ -7,7 +7,9 @@
             <include name="ErrorHandling"/>
         </run>
     </groups>
-
+    <listeners>
+        <listener class-name="automationFramework.TestComponents.Listeners"></listener>
+    </listeners>
     <test thread-count="5" name="Submit order Test">
         <classes>
             <class name="automationFramework.tests.submitOrderTest"/>
