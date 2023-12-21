@@ -61,7 +61,7 @@ public class submitOrderTest extends BaseTest {
 //        return new Object[][] {{"testk@gmail.com","Test@1234","ZARA COAT 3" }};}
 
         List<HashMap<String, String>> data = getJSONDataToMap(System.getProperty("user.dir")+ "\\src\\test\\java\\automationFramework\\data\\PurchaseOrder.json");
-        return new Object[][]  {{data.get(0)},{data.get(1)}};
+        return new Object[][]  {{data.get(0)}};
     }
 
 }

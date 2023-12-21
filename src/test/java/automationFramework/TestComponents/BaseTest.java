@@ -38,7 +38,7 @@ public LandingPage landingPage;
         FileInputStream fileInputStream = new FileInputStream(System.getProperty("user.dir")
         + "//src//main//java//automationFramework//Resources//GlobalData.properties");
         property.load(fileInputStream);
-        String browserName = property.getProperty("browser");
+        String browserName = System.getProperty("browser")!=null ? System.getProperty("browser") : property.getProperty("browser");
         if(browserName.equalsIgnoreCase("edge")) {
             WebDriverManager.edgedriver().setup();
             EdgeOptions options = new EdgeOptions();
