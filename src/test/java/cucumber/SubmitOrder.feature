@@ -15,3 +15,5 @@ Scenario Outline: Positive test for submitting the order
 Examples:
 | username            | password | productName|
 | testk@gmail.com     | Test@1234| I PHONE |
+| testk@gmail.com     | Test@1234| ZARA COAT 3 |
+| testk@gmail.com     | Test@1234| ADIDAS ORIGINAL |

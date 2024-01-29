@@ -9,7 +9,6 @@ import org.testng.annotations.Test;
 //import sun.nio.cs.UTF_8;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 
@@ -20,10 +19,8 @@ public class submitOrderTest extends BaseTest {
 
     @Test(dataProvider = "getData", groups = "Purchase")
     public void submitOrder(HashMap<String, String> input) throws IOException, InterruptedException {
-
         ProductCatalogue productCatalogue = landingPage.loginApplication(input.get("email"), input.get("passwd"));
         //Explicit Wait
-
         List<WebElement> products = productCatalogue.getProductsList();
 //      productCatalogue.addToCart(itemName);
         CartPage cartPage = productCatalogue.addToCart(input.get("itemName"));

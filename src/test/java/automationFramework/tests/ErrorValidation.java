@@ -30,7 +30,7 @@ public class ErrorValidation extends BaseTest {
     public void ProductErrorValidation() throws IOException, InterruptedException
     {
 
-        String productName = "I PHONE";
+        String productName = "IPHONE 13 PRO";
         ProductCatalogue productCatalogue = landingPage.loginApplication("testk@gmail.com", "Test@1234");
         List<WebElement> products = productCatalogue.getProductsList();
         productCatalogue.addToCart(productName);
